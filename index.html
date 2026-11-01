@@ -65,7 +65,16 @@ h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:14px;letter-spa
       }, 10000);
     }
 
-    // This page has no automatic Telegram redirect, so TelegramAutoRedirect is not fired.
+    // Automatically redirect to Telegram after 300 ms and track the redirect event.
+    if (telegramButton && !window.__xreorestartTelegramRedirectStarted) {
+      window.__xreorestartTelegramRedirectStarted = true;
+      window.setTimeout(function () {
+        if (typeof window.fbq === 'function') {
+          window.fbq('trackCustom', 'telegramredirect');
+        }
+        window.location.href = telegramButton.href;
+      }, 300);
+    }
     // It also has no subscription button, so no Subscribe event is added.
   })();
 </script>
