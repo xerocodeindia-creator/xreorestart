@@ -37,6 +37,18 @@ h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:14px;letter-spa
     height: 100%;
     overscroll-behavior: none;
   }
+  body {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    place-items: center !important;
+    padding: 16px !important;
+  }
+  main.card {
+    width: min(460px, calc(100vw - 32px)) !important;
+    max-width: 460px !important;
+    margin: 0 auto !important;
+    justify-self: center !important;
+  }
 </style>
 </head><body><main class="card">
 <div class="avatar" aria-hidden="true"><img src="https://raw.githubusercontent.com/xerocodeindia-creator/xreorestart/main/photo_6235601733186949648_y.jpg" alt="Profile picture"></div>
